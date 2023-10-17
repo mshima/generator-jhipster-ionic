@@ -22,7 +22,7 @@ const queries = query.queries;
 const variables = query.variables;
 let hasManyToMany = query.hasManyToMany;
 _%>
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit<% if (anyFieldIsBlobDerived) { %>ViewChild<% } %> } from '@angular/core';
 <%_ if (anyFieldIsBlobDerived) { _%>
 import { JhiDataUtils } from '../../../services/utils/data-util.service';
 <%_ } _%>
@@ -69,6 +69,7 @@ export class <%= entityAngularName %>UpdatePage implements OnInit {
     <%- variables[idx] %>
     <%_ } _%>
     <%_ if (anyFieldHasImageContentType) { _%>
+      @ViewChild('fileInput', { static: false }) fileInput;
       imageOptions: ImageOptions;
     <%_ } _%>
     <%_ for ( idx in fields ) {
@@ -256,32 +257,48 @@ _%>
 <%_ if (anyFieldHasImageContentType) { _%>
 
     async getPicture(fieldName) {
-      if (Capacitor.isPluginAvailable('Camera')) {
-        try {
-          if (Capacitor.isNativePlatform()) {
-            const permissions = await Camera.requestPermissions({ permissions: ['camera', 'photos'] });
-            if ([permissions.camera, permissions.photos].every(permission => permission === 'denied')) {
-              const alert = await this.alertController.create({
-                header: 'You don\'t have permission',
-                buttons: [{ text: 'Ok' }],
-              });
-              return alert.present();
-            }
-          }
-          const image = await Camera.getPhoto(this.imageOptions);
-          const [meta, imageData] = image.dataUrl.split(',', 2);
-          // data:contentType,base64
-          const contentType = meta.split(':')[1].split(';')[0].trim();
+        if (Capacitor.isPluginAvailable('Camera')) {
+            try {
+                if (Capacitor.isNativePlatform()) {
+                    const permissions = await Camera.requestPermissions({ permissions: ['camera', 'photos'] });
+                    if ([permissions.camera, permissions.photos].every(permission => permission === 'denied')) {
+                      const alert = await this.alertController.create({
+                        header: "You don't have permission",
+                        buttons: [{ text: 'Ok' }],
+                      });
+                      return alert.present();
+                    }
+                }
+              const image = await Camera.getPhoto(this.imageOptions);
+              const [meta, imageData] = image.dataUrl.split(',', 2);
+              // data:contentType,base64
+              const contentType = meta.split(':')[1].split(';')[0].trim();
 
-          const patchValue = { [fieldName]: imageData, [fieldName + 'ContentType']: contentType };
-          Object.assign(this.<%= entityInstance %>, patchValue);
-          this.form.patchValue(patchValue);
-        } catch (error) {
-          console.log(error);
+              const patchValue = { [fieldName]: imageData, [fieldName + 'ContentType']: contentType };
+              Object.assign(this.photo, patchValue);
+              this.form.patchValue(patchValue);
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            this.fileInput.nativeElement.click();
         }
-      } else {
-        console.log('Camera plugin not supported');
-      }
+    }
+
+    processWebImage(event, fieldName) {
+        const reader = new FileReader();
+        reader.onload = readerEvent => {
+            let imageData = (readerEvent.target as any).result;
+            const imageType = event.target.files[0].type;
+            imageData = imageData.substring(imageData.indexOf(',') + 1);
+
+            this.form.patchValue({ [fieldName]: imageData });
+            this.form.patchValue({ [fieldName + 'ContentType']: imageType });
+            this.photo[fieldName] = imageData;
+            this.photo[fieldName + 'ContentType'] = imageType;
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
     }
 
     clearInputImage(field: string) {
@@ -289,11 +306,12 @@ _%>
       Object.assign(this.<%= entityInstance %>, patchValue);
       this.form.patchValue(patchValue);
     }
-<%_ } 
+<%_ }
 
     if (anyFieldIsBlobDerived) { _%>
     setFileData(event, field, isImage) {
         this.dataUtils.loadFileToForm(event, this.form, field, isImage).subscribe();
+        this.processWebImage(event, field);
     }
 <%_ } _%>
 
