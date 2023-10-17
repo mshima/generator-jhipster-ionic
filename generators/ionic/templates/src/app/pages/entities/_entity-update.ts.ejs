@@ -22,7 +22,7 @@ const queries = query.queries;
 const variables = query.variables;
 let hasManyToMany = query.hasManyToMany;
 _%>
-import { Component, OnInit<% if (anyFieldIsBlobDerived) { %>ViewChild<% } %> } from '@angular/core';
+import { Component, OnInit<% if (anyFieldIsBlobDerived) { %>,ViewChild<% } %> } from '@angular/core';
 <%_ if (anyFieldIsBlobDerived) { _%>
 import { JhiDataUtils } from '../../../services/utils/data-util.service';
 <%_ } _%>
@@ -311,7 +311,9 @@ _%>
     if (anyFieldIsBlobDerived) { _%>
     setFileData(event, field, isImage) {
         this.dataUtils.loadFileToForm(event, this.form, field, isImage).subscribe();
+      <%_ if (anyFieldHasImageContentType) { _%>
         this.processWebImage(event, field);
+      <%_ } _%>
     }
 <%_ } _%>
 
