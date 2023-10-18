@@ -275,14 +275,14 @@ _%>
           const contentType = meta.split(':')[1].split(';')[0].trim();
 
           const patchValue = { [fieldName]: imageData, [fieldName + 'ContentType']: contentType };
-          Object.assign(this.photo, patchValue);
+          Object.assign(this.<%= entityInstance %>, patchValue);
           this.form.patchValue(patchValue);
         } catch (error) {
           console.log(error);
         }
       } else {
         this.fileInput.nativeElement.click();
-        }
+      }
     }
 
     processWebImage(event, fieldName) {
@@ -294,8 +294,8 @@ _%>
 
         this.form.patchValue({ [fieldName]: imageData });
         this.form.patchValue({ [fieldName + 'ContentType']: imageType });
-        this.photo[fieldName] = imageData;
-        this.photo[fieldName + 'ContentType'] = imageType;
+        this.<%= entityInstance %>[fieldName] = imageData;
+        this.<%= entityInstance %>[fieldName + 'ContentType'] = imageType;
       };
 
       reader.readAsDataURL(event.target.files[0]);
@@ -311,9 +311,9 @@ _%>
     if (anyFieldIsBlobDerived) { _%>
     setFileData(event, field, isImage) {
         this.dataUtils.loadFileToForm(event, this.form, field, isImage).subscribe();
-      <%_ if (anyFieldHasImageContentType) { _%>
+  <%_ if (anyFieldHasImageContentType) { _%>
         this.processWebImage(event, field);
-      <%_ } _%>
+  <%_ } _%>
     }
 <%_ } _%>
 
