@@ -315,7 +315,7 @@ _%>
     }
 <%_ } _%>
 
-  <%_ if (anyFieldIsBlobDerived) { _%>
+<%_ if (anyFieldIsBlobDerived) { _%>
     setFileData(event, field, isImage) {
         this.dataUtils.loadFileToForm(event, this.form, field, isImage).subscribe();
   <%_ if (anyFieldHasImageContentType) { _%>
