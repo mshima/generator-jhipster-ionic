@@ -84,6 +84,9 @@ export class <%= entityAngularName %>UpdatePage implements OnInit {
     isSaving = false;
     isNew = true;
     isReadyToSave: boolean;
+<%_ if (anyFieldHasImageContentType) { _%>
+    useCameraCapacitor: boolean;
+<%_ } _%>
 
     form = this.formBuilder.group({
     <%_ for (idx in fields) {
@@ -171,7 +174,11 @@ _%>
             this.isNew = this.<%= entityInstance %>.id === null || this.<%= entityInstance %>.id === undefined;
             this.updateForm(this.<%= entityInstance %>);
         });
-    }
+<%_ if (anyFieldHasImageContentType) { _%>
+
+        this.useCameraCapacitor = Capacitor.isPluginAvailable('Camera');
+<%_ } _%>
+}
 
     updateForm(<%= entityInstance %>: <%= entityAngularName %>) {
         this.form.patchValue({
@@ -257,7 +264,7 @@ _%>
 <%_ if (anyFieldHasImageContentType) { _%>
 
     async getPicture(fieldName) {
-      if (Capacitor.isPluginAvailable('Camera')) {
+      if (this.useCameraCapacitor) {
         try {
           if (Capacitor.isNativePlatform()) {
             const permissions = await Camera.requestPermissions({ permissions: ['camera', 'photos'] });
