@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: jhipster/generator-jhipster-ionic
       - uses: jhipster/actions/setup-runner@v0
       - name: Upgrade
         run: |
@@ -27,6 +29,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          push-to-fork: mshima/generator-jhipster-ionic
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'Update generator-jhipster to ${{ inputs.version }}'
           title: 'Update generator-jhipster to ${{ inputs.version }}'
