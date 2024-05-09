@@ -1,0 +1,34 @@
+name: upgrade
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  upgrade:
+    permissions:
+      contents: write # for peter-evans/create-pull-request to create branch
+      pull-requests: write # for peter-evans/create-pull-request to create a PR
+    name: Update generator-jhipster
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jhipster/actions/setup-runner@v0
+      - name: Upgrade
+        run: |
+          npx generator-jhipster@${{ inputs.version }} generate-blueprint --force
+          rm -rf node_modules package-lock.json
+          npm install
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Update generator-jhipster to ${{ inputs.version }}'
+          title: 'Update generator-jhipster to ${{ inputs.version }}'
+          body: ''
+          branch: generator-jhipster-${{ inputs.version }}
