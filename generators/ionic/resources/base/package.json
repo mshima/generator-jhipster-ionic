@@ -49,7 +49,7 @@
     "ionic-appauth": "2.1.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
-    "zone.js": "~0.14.6"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-builders/jest": "~18.0.0-beta.3",
@@ -66,7 +66,7 @@
     "@cypress/schematic": "^2.5.1",
     "@ionic/angular-toolkit": "^12.1.1",
     "@ionic/cli": "^7.2.0",
-    "@types/jest": "29.5.13",
+    "@types/jest": "29.5.14",
     "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
@@ -80,6 +80,6 @@
     "jest-localstorage-mock": "2.4.26",
     "jest-preset-angular": "14.2.4",
     "prettier": "3.3.3",
-    "typescript": "~5.5.3"
+    "typescript": "~5.6.3"
   }
 }
