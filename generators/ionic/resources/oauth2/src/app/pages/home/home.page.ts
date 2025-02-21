@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, Platform } from '@ionic/angular';
-import { Account } from 'src/model/account.model';
-import { AccountService } from '#app/services/auth/account.service';
-import { LoginService } from '#app/services/login/login.service';
+import { Account } from 'src/model/account.model.js';
+import { AccountService } from '#app/services/auth/account.service.js';
+import { LoginService } from '#app/services/login/login.service.js';
 import { environment } from '../../../environments/environment';
 
 @Component({

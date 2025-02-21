@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { WelcomePage } from './welcome.page';
+import { WelcomePage } from './welcome.page.js';
 
 const routes: Routes = [
   {

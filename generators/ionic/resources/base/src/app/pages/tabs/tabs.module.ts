@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { TabsPage } from './tabs.page';
-import { TabsPageRoutingModule } from './tabs.router.module';
+import { TabsPage } from './tabs.page.js';
+import { TabsPageRoutingModule } from './tabs.router.module.js';
 
 @NgModule({
   imports: [IonicModule, CommonModule, FormsModule, TabsPageRoutingModule, TranslateModule],

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-import { ApiService } from './api.service';
+import { ApiService } from './api.service.js';
 
 describe('ApiService', () => {
   beforeEach(() =>

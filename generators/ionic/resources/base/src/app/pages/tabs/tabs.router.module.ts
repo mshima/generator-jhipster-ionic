@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { TabsPage } from './tabs.page.js';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../home/home.module').then(m => m.HomePageModule),
+            loadChildren: () => import('../home/home.module.js').then(m => m.HomePageModule),
           },
         ],
       },
@@ -21,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../entities/entities.module').then(m => m.EntitiesPageModule),
+            loadChildren: () => import('../entities/entities.module.js').then(m => m.EntitiesPageModule),
           },
         ],
       },
@@ -30,7 +30,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule),
+            loadChildren: () => import('../account/account.module.js').then(m => m.AccountPageModule),
           },
         ],
       },

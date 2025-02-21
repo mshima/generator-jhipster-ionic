@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideHttpClient } from '@angular/common/http';
 
-import { UserRouteAccessService } from './user-route-access.service';
+import { UserRouteAccessService } from './user-route-access.service.js';
 
 describe('UserRouteAccessService', () => {
   beforeEach(() =>
