@@ -1,7 +1,7 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { AccountService } from './account.service';
+import { AccountService } from './account.service.js';
 
 @Injectable({
   providedIn: 'root',

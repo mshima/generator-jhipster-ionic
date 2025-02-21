@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from '../auth/account.service';
+import { AccountService } from '../auth/account.service.js';
 import { AuthService, Browser } from 'ionic-appauth';
 import { environment } from '../../../environments/environment';
 

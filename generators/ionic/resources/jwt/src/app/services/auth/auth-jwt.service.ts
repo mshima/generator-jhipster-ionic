@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiService } from '../api/api.service';
+import { ApiService } from '../api/api.service.js';
 
 const AUTHENTICATION_TOKEN = 'jhi-authenticationtoken';
 
