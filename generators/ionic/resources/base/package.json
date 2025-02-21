@@ -5,7 +5,7 @@
   "homepage": "https://www.jhipster.tech",
   "author": "Ionic Framework + JHipster",
   "imports": {
-    "#*": "./dist/*"
+    "#*": "./src/*"
   },
   "scripts": {
     "build": "ionic build",
