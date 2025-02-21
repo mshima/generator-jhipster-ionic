@@ -4,6 +4,9 @@
   "description": "A hip Ionic project, made with 💙 by @jhipster!",
   "homepage": "https://www.jhipster.tech",
   "author": "Ionic Framework + JHipster",
+  "imports": {
+    "#*": "./dist/*"
+  },
   "scripts": {
     "build": "ionic build",
     "cypress:open": "cypress open",

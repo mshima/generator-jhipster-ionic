@@ -1,10 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
     "allowJs": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "target": "es2015",
     "types": ["node", "jest"]
   },
