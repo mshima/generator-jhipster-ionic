@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-import { UserService } from './user.service';
+import { UserService } from './user.service.js';
 
 describe('UserService', () => {
   beforeEach(() =>

@@ -18,10 +18,10 @@
 -%>
 import { Component, OnInit } from '@angular/core';
 <%_ if (anyFieldIsBlobDerived) { _%>
-import { JhiDataUtils } from '#app/services/utils/data-util.service';
+import { JhiDataUtils } from '#app/services/utils/data-util.service.js';
 <%_ } _%>
-import { <%= entityAngularName %> } from './<%= entityFileName %>.model';
-import { <%= entityAngularName %>Service } from './<%= entityFileName %>.service';
+import { <%= entityAngularName %> } from './<%= entityFileName %>.model.js';
+import { <%= entityAngularName %>Service } from './<%= entityFileName %>.service.js';
 import { NavController, AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 

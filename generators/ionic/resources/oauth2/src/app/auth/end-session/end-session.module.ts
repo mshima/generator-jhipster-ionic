@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EndSessionPage } from './end-session.page';
+import { EndSessionPage } from './end-session.page.js';
 
 const routes: Routes = [
   {

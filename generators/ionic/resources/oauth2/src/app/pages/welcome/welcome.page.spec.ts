@@ -4,8 +4,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { WelcomePage } from './welcome.page';
-import { AuthModule } from '../../auth/auth.module';
+import { WelcomePage } from './welcome.page.js';
+import { AuthModule } from '../../auth/auth.module.js';
 
 describe('WelcomePage', () => {
   let component: WelcomePage;

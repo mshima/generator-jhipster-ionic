@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
-import { ApiService } from '#app/services/api/api.service';
+import { ApiService } from '#app/services/api/api.service.js';
 import { AuthService } from 'ionic-appauth';
 
 @Injectable()

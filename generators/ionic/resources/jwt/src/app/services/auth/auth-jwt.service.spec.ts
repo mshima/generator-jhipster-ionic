@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-import { AuthServerProvider } from './auth-jwt.service';
+import { AuthServerProvider } from './auth-jwt.service.js';
 
 describe('AuthServerProvider', () => {
   beforeEach(() =>

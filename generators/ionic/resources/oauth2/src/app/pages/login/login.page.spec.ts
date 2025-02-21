@@ -4,8 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { LoginPage } from './login.page';
-import { AuthModule } from '../../auth/auth.module';
+import { LoginPage } from './login.page.js';
+import { AuthModule } from '../../auth/auth.module.js';
 
 describe('LoginPage', () => {
   let component: LoginPage;

@@ -4,7 +4,7 @@ import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-import { TabsPage } from './tabs.page';
+import { TabsPage } from './tabs.page.js';
 
 describe('TabsPage', () => {
   let component: TabsPage;

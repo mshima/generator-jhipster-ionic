@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from '../auth/account.service';
-import { AuthServerProvider } from '../auth/auth-jwt.service';
+import { AccountService } from '../auth/account.service.js';
+import { AuthServerProvider } from '../auth/auth-jwt.service.js';
 
 @Injectable({
   providedIn: 'root',

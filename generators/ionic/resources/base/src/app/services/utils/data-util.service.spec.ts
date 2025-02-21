@@ -18,7 +18,7 @@
  */
 import { waitForAsync, inject, TestBed } from '@angular/core/testing';
 
-import { JhiDataUtils } from './data-util.service';
+import { JhiDataUtils } from './data-util.service.js';
 
 describe('Data Utils Service Test', () => {
   beforeEach(() => {

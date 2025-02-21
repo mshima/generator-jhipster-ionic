@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AuthCallbackPage } from './auth-callback.page';
+import { AuthCallbackPage } from './auth-callback.page.js';
 
 const routes: Routes = [
   {
