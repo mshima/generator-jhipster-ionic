@@ -3,7 +3,7 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-import { UserRouteAccessService } from './user-route-access.service';
+import { UserRouteAccessService } from './user-route-access.service.js';
 
 describe('UserRouteAccessService', () => {
   beforeEach(() =>

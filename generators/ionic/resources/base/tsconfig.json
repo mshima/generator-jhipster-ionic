@@ -3,10 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "#app/*": ["./src/app/*"]
-    },
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -19,6 +17,7 @@
     "module": "es2020",
     "lib": ["es2018", "dom"]
   },
+  "include": ["src/**/*.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
